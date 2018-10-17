@@ -17,3 +17,5 @@ hello_operator = PythonOperator(task_id='hello_task', python_callable=print_hell
 dummy_operator >> hello_operator
 
 # gsutil cp hello_world.py gs://us-central1-tandem-jump-81e8a133-bucket/dags
+
+print('done done')
