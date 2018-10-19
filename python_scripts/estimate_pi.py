@@ -1,8 +1,11 @@
 import random
+import time
 
 from pyspark import SparkContext
 
 print('started pi job')
+
+time.sleep(900)
 
 NUM_SAMPLES = 1000
 

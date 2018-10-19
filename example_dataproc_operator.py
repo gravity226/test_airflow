@@ -40,16 +40,27 @@ estimate_pi = PSO(
   task_id='estimate-pi',
   cluster_name='smooth-operator',
   project_id='single-portal-216120',
-  main='gs://us-central1-tandem-jump-81e8a133-bucket/dags/python_scripts/estimate_pi.py',
+  main='gs://us-central1-tandem-jump-1d5d11f4-bucket/dags/python_scripts/estimate_pi.py',
   gcp_conn_id='google_cloud_default',
-  dag=dag
+  # wait_for_downstream=True,
+  dag=dag,
 )
 
 delete = DO(
   task_id='delete-cluster',
   project_id='single-portal-216120',
   cluster_name='smooth-operator',
+  # wait_for_downstream=True,
   dag=dag,
 )
 
 create >> estimate_pi >> delete
+
+
+'''
+response check
+poke interval
+
+http sensor to run that
+
+'''
